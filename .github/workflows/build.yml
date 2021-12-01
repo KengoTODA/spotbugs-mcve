@@ -14,3 +14,7 @@ jobs:
           distribution: temurin
       - run: |
           .\gradlew.bat build --no-daemon -i
+      - uses: actions/upload-artifact@v2
+        with:
+          name: reports
+          path: build/reports
