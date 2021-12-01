@@ -1,0 +1,36 @@
+plugins {
+    id 'com.github.spotbugs' version '4.8.0'
+    id 'java'
+}
+
+group 'com.example'
+version '0.1.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'com.github.spotbugs:spotbugs-annotations:4.5.+'
+    testCompileOnly 'com.github.spotbugs:spotbugs-annotations:4.5.+'
+    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.11.+'
+}
+
+spotbugsMain {
+    reports {
+        xml.required = false
+        html.required = true
+    }
+}
+
+spotbugsTest {
+    reports {
+        xml.required = false
+        html.required = true
+    }
+}
